@@ -1,0 +1,17 @@
+{
+  "extends": "./node_modules/@grafana/toolkit/src/config/tsconfig.plugin.json",
+  "include": [
+    "src",
+    "types"
+  ],
+  "compilerOptions": {
+    "removeComments": true,
+    "target": "es5",
+    "rootDir": "./src",
+    "baseUrl": "./src",
+    "typeRoots": [
+      "./node_modules/@types"
+    ],
+ 
+  }
+}
