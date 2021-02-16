@@ -53,6 +53,16 @@ export const plugin = new PanelPlugin<SimpleOptions>(SimplePanel).setPanelOption
       },
       defaultValue:'right'
     })
+    .addSelect({
+      showIf:o => o.legendShow,
+      path:'legendTop',
+      name: 'Legend Top',
+      settings:{
+        options:[{value:"top",label:"top"},
+          {value:"middle",label:"middle"},{value:"bottom",label:"bottom"}]
+      },
+      defaultValue:'top'
+    })
     .addBooleanSwitch({
       path: 'singleType',
       name: 'Single Type',

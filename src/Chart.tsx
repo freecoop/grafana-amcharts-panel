@@ -19,10 +19,8 @@ function Chart(id:string,option:SimpleOptions, data:PanelData):any {
       legend: {
         show: option.legendShow,
         orient: option.legendOrient,
-        option: option.legendLeft,
-      },
-      label:{
-        show:option.labelShow
+        left: option.legendLeft,
+        top: option.legendTop
       },
       series:[]
     };
@@ -43,7 +41,8 @@ function buildOptions(type:string, data:PanelData,eoption:any,option:SimpleOptio
     for (let i = 0; i < 3; i++) {
       dataSet.push({name:a[i],value:b[i]});
     }
-    eoption.series.push({type:type,data:dataSet,radius:option.radius.split(",")})
+    eoption.series.push({type:type,data:dataSet,
+      label:option.labelShow,radius:option.radius.split(",")})
   }
 }
 export default Chart;
