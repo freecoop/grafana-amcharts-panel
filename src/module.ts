@@ -75,7 +75,8 @@ export const plugin = new PanelPlugin<SimpleOptions>(SimplePanel).setPanelOption
       settings:{
         options:[{value:"pie",label:"Pie"},
           {value:"line",label:"Line"},{value:"bar",label:"Bar"}]
-      }
+      },
+      defaultValue:"pie"
     })
     .addTextInput({
       showIf: o => o.singleType && "pie"==o.type,

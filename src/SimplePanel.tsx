@@ -9,10 +9,12 @@ interface Props extends PanelProps<SimpleOptions> {}
 
 export const SimplePanel: React.FC<Props> = ({ options, data, width, height }) => {
   var id = uuid();
+  console.log(id)
   useEffect(() => {
+    console.log(document.getElementById(id))
     Chart(id,options,data)
-  }, []);
-  window.onload = Chart(id,options,data)
+  }, [options]);
+ // window.onload = Chart(id,options,data)
   return (
     <div className="App">
       <div id={id} style={{ width: width, height: height}} >
