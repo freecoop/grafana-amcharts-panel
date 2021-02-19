@@ -74,7 +74,7 @@ export const plugin = new PanelPlugin<SimpleOptions>(SimplePanel).setPanelOption
       name: 'Chart Type',
       settings:{
         options:[{value:"pie",label:"Pie"},
-          {value:"line",label:"Line"},{value:'bar',label:'Bar'}]
+          {value:"line",label:"Line"},{value:"bar",label:"Bar"}]
       }
     })
     .addTextInput({

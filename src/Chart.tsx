@@ -1,12 +1,9 @@
 import * as echarts from 'echarts';
 import {PanelData} from "@grafana/data"
 import { SimpleOptions } from "./types";
-import { v4 as uuid } from "uuid";
 
 function Chart(id:string,option:SimpleOptions, data:PanelData):any {
-  var cId = uuid();
-  console.log(cId)
-  var t = document.getElementById('t')
+  var t = document.getElementById(id)
   if (t != null) {
     var myChart = echarts.init(t);
     var eoption = {
@@ -43,6 +40,21 @@ function buildOptions(type:string, data:PanelData,eoption:any,option:SimpleOptio
     }
     eoption.series.push({type:type,data:dataSet,
       label:option.labelShow,radius:option.radius.split(",")})
+  }else if("bar" ==type){
+    var a = [{}];
+    var b = [{}];
+    data.series.map((s)=>{
+    a = (s.fields.find(f=>f.type ==='string')?.values as any).buffer
+    b = (s.fields.find(f=>f.type ==='number')?.values as any).buffer
+    })
+    eoption.xAxis = {
+      data:a
+    }
+    eoption.yAxis ={}
+    eoption.series.push({
+      type:option.type,
+      data:b
+    })
   }
 }
 export default Chart;
