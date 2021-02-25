@@ -29,6 +29,12 @@ export const plugin = new PanelPlugin<SimpleOptions>(SimplePanel).setPanelOption
       defaultValue:false
     }) 
     .addBooleanSwitch({
+      showIf: o=>o.labelShow,
+      path:'labelPercentage',
+      name: 'Label with Percentage',
+      defaultValue:true
+    }) 
+    .addBooleanSwitch({
       path:'legendShow',
       name: 'Legend Show',
       defaultValue:false

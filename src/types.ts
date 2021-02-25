@@ -6,6 +6,7 @@ export interface SimpleOptions {
   titleLeft: string;
   labelShow: boolean;
   legendShow: boolean;
+  labelPercentage: boolean;
   legendLeft:string;
   legendTop:string;
   legendOrient:string;
